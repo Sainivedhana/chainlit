@@ -5,23 +5,25 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from langchain_core.messages import HumanMessage, SystemMessage
 
-#from src.config import instruction
+from src.config import instruction
 
 load_dotenv()
 
-GOOGLE_API_KEY=os.getenv('GOOGLE_API_KEY')
-
-def ask_bot(user_message):
+def ask_bot(user_message,instruction):
     
-    llm = ChatGoogleGenerativeAI(model="gemini-pro")
+    model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=os.environ["g_api"], convert_system_message_to_human=True)
     
     
-    respones=llm.invoke(user_message)
+    respones=model(
+    [
+        SystemMessage(content=instruction),
+        HumanMessage(content=user_message),
+    ]
+)
+    
     return respones.content
 
 if __name__=="__main__":
-    print("Welcome to chatbot")
-    print(GOOGLE_API_KEY)
-    user_message = "What is transformer?"
-    response=ask_bot(user_message)
-    print(response)
+    user_message = "hi how are you?"
+    respones=ask_bot(user_message)
+    print(respones)
