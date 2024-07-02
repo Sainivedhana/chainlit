@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: zomato-bot
+Version: 0.0.1
+Author: sai nivedhana
+Author-email: sainivy08@gmail.com
+Requires-Dist: chainlit
+Requires-Dist: notebook
+Requires-Dist: ipywidgets
+Requires-Dist: tqdm
+Requires-Dist: python-dotenv
+Requires-Dist: langchain-google-genai
