@@ -10,11 +10,10 @@ from langchain_core.messages import HumanMessage, SystemMessage
 load_dotenv()
 
 GOOGLE_API_KEY=os.getenv('GOOGLE_API_KEY')
-os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 def ask_bot(user_message):
     
-    llm = ChatGoogleGenerativeAI(model="gemini-pro",GOOGLE_API_KEY= GOOGLE_API_KEY)
+    llm = ChatGoogleGenerativeAI(model="gemini-pro")
     
     
     respones=llm.invoke(user_message)
@@ -22,6 +21,7 @@ def ask_bot(user_message):
 
 if __name__=="__main__":
     print("Welcome to chatbot")
+    print(GOOGLE_API_KEY)
     user_message = "What is transformer?"
     response=ask_bot(user_message)
     print(response)
