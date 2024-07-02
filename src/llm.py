@@ -17,7 +17,7 @@ def ask_bot(user_message):
     llm = ChatGoogleGenerativeAI(model="gemini-pro", convert_system_message_to_human=True)
     
     
-    respones=llm.invoke()
+    respones=llm.invoke(user_message)
     return respones.content
 
 if __name__=="__main__":
