@@ -25,5 +25,5 @@ def ask_bot(user_message,instruction):
 
 if __name__=="__main__":
     user_message = "hi how are you?"
-    respones=ask_bot(user_message)
+    respones=ask_bot(user_message, instruction)
     print(respones)
