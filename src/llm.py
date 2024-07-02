@@ -14,7 +14,7 @@ os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 def ask_bot(user_message):
     
-    llm = ChatGoogleGenerativeAI(model="gemini-pro", convert_system_message_to_human=True)
+    llm = ChatGoogleGenerativeAI(model="gemini-pro",GOOGLE_API_KEY= GOOGLE_API_KEY)
     
     
     respones=llm.invoke(user_message)
